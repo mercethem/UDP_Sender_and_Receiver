@@ -1,7 +1,6 @@
 # UDP_Sender_and_Receiver (BROADCAST)
-
-## Changeable defines
 ------------------------------------
+## Changeable defines
 if you want to change below defines:
 
 PORT : 8081
@@ -11,6 +10,7 @@ SOCKET_VERSION : MAKEWORD(2, 2)
 ADDRESS : "255.255.255.255"
 
 ------------------------------------
+## File Contents
 udp_sender.h      ---> sender header file have got sender class
 
 udp_sender.cpp    ---> sender implementation file
