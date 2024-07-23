@@ -11,6 +11,18 @@ SOCKET_VERSION : MAKEWORD(2, 2)
 ADDRESS : "255.255.255.255"
 
 ------------------------------------
+udp_sender.h      ---> sender header file have got sender class
+
+udp_sender.cpp    ---> sender implementation file
+
+udp_receiver.h    ---> receiver header file have got receiver class
+
+udp_receiver.cpp  ---> receiver implementation file
+
+main.cpp          ---> startup file (includes definitions and redirection codes)
+
+------------------------------------
+
 # How To Use
 
 ## Step 1:
