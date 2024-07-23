@@ -1,0 +1,3 @@
+C:/Users/merce/OneDrive/Masaüstü/UDP_Sender_and_Receiver/cmake-build-debug/CMakeFiles/UDP_Sender_and_Receiver.dir
+C:/Users/merce/OneDrive/Masaüstü/UDP_Sender_and_Receiver/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/merce/OneDrive/Masaüstü/UDP_Sender_and_Receiver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
