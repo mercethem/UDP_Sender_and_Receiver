@@ -38,3 +38,7 @@ EXIT(ELSE) - Exit the program
 Choosen : Server ---> send message
 
 Choosen : Receiver receive the message
+
+## INTRODUCTION VIDEO:
+
+[![Watch the video](https://github.com/user-attachments/assets/a0c28403-ce22-45e7-9fd8-cb74df2b7e94)]([intro.mp4](https://github.com/user-attachments/assets/a0c28403-ce22-45e7-9fd8-cb74df2b7e94))
