@@ -7,7 +7,7 @@ void Udp_Sender::WSA_Start(WORD version) const
     WSADATA data;
     int wsaStartup = WSAStartup(version, &data);
     if(wsaStartup != 0) {
-        std::cout << "Can not start WSAStartup! Error code: " << wsaStartup << std::endl;
+        std::cout << "Can not start WSAStartup! Error code: " << wsaStartup << "\n";
         throw std::runtime_error("WSAStartup failed");
     }
 }
@@ -17,7 +17,7 @@ void Udp_Sender::Create_Socket()
     // 2- create socket
     my_socket = socket(AF_INET, SOCK_DGRAM, 0);
     if(my_socket == INVALID_SOCKET) {
-        std::cout << "Can not create socket! Error code: " << WSAGetLastError() << std::endl;
+        std::cout << "Can not create socket! Error code: " << WSAGetLastError() << "\n";
         WSACleanup();
         throw std::runtime_error("Socket creation failed");
     }
@@ -28,7 +28,7 @@ void Udp_Sender::Enable_Broadcast_Option() const
     // 3- Enable broadcast option
     BOOL broadcast = TRUE;
     if(setsockopt(my_socket, SOL_SOCKET, SO_BROADCAST, (char*) &broadcast, sizeof(broadcast)) == SOCKET_ERROR) {
-        std::cout << "Failed to enable broadcast option. Error code: " << WSAGetLastError() << std::endl;
+        std::cout << "Failed to enable broadcast option. Error code: " << WSAGetLastError() << "\n";
         closesocket(my_socket);
         WSACleanup();
         throw std::runtime_error("Failed to enable broadcast option");
@@ -55,13 +55,13 @@ void Udp_Sender::SendMessage() const
                                 (sockaddr*) &server_address,
                                 sizeof(server_address));
         if(sendResult == SOCKET_ERROR) {
-            std::cout << "Error sending message. Error code: " << WSAGetLastError() << std::endl;
+            std::cout << "Error sending message. Error code: " << WSAGetLastError() << "\n";
         }
         else if(message == "exit") {
             break;
         }
         else {
-            std::cout << "Message sent: " << message << std::endl;
+            std::cout << "Message sent: " << message << "\n";
         }
     }
 }
