@@ -8,7 +8,7 @@
 
 int main()
 {
-    std::cout << "SERVER(0)" << "\n" << "RECEIVER(1)" << "\n" << "EXIT(ELSE)" << std::endl;
+    std::cout << "SERVER(0)" << "\n" << "RECEIVER(1)" << "\n" << "EXIT(ELSE)" << "\n";
     std::string choose{};
     std::cin >> choose;
     if(choose == "1") {
@@ -16,7 +16,7 @@ int main()
             Udp_Receiver receiver(SOCKET_VERSION, PORT);
         }
         catch(const std::exception &exception) {
-            std::cerr << "Exception occurred: " << exception.what() << std::endl;
+            std::cerr << "Exception occurred: " << exception.what() << "\n";
         }
     }
     else if(choose == "0") {
@@ -24,7 +24,7 @@ int main()
             Udp_Sender sender(SOCKET_VERSION, ADDRESS, PORT);
         }
         catch(const std::exception &exception) {
-            std::cerr << "Exception occurred: " << exception.what() << std::endl;
+            std::cerr << "Exception occurred: " << exception.what() << "\n";
         }
     }
     else {
