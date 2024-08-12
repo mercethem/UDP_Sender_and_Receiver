@@ -7,7 +7,7 @@ void Udp_Receiver::WSA_Start(WORD version) const
     WSADATA data;
     int wsaStartup = WSAStartup(version, &data);
     if(wsaStartup != 0) {
-        std::cout << "Can not start WSAStartup! Error code: " << wsaStartup << std::endl;
+        std::cout << "Can not start WSAStartup! Error code: " << wsaStartup << "\n";
         throw std::runtime_error("WSAStartup failed");
     }
 }
@@ -25,7 +25,7 @@ void Udp_Receiver::Create_Socket() const
 {
     // Socket creation
     if(my_socket == INVALID_SOCKET) {
-        std::cout << "Socket creation failed! Error code: " << WSAGetLastError() << std::endl;
+        std::cout << "Socket creation failed! Error code: " << WSAGetLastError() << "\n";
         WSACleanup();
         throw std::runtime_error("Socket creation failed");
     }
@@ -35,7 +35,7 @@ void Udp_Receiver::Bind_Socket_And_Address() const
 {
     // Bind the socket to the address and port
     if(bind(my_socket, (sockaddr*) &server, sizeof(server)) == SOCKET_ERROR) {
-        std::cout << "Bind failed! Error code: " << WSAGetLastError() << std::endl;
+        std::cout << "Bind failed! Error code: " << WSAGetLastError() << "\n";
         closesocket(my_socket);
         WSACleanup();
         throw std::runtime_error("Bind failed");
@@ -44,7 +44,7 @@ void Udp_Receiver::Bind_Socket_And_Address() const
 
 void Udp_Receiver::Message() const
 {
-    std::cout << "Waiting for messages..." << " My Port: " << my_port << std::endl;
+    std::cout << "Waiting for messages..." << " My Port: " << my_port << "\n";
     while(true) {
         sockaddr_in client{};
         int clientLength = sizeof(client);
@@ -55,7 +55,7 @@ void Udp_Receiver::Message() const
 
         int bytesReceived = recvfrom(my_socket, buffer, sizeof(buffer) - 1, 0, (sockaddr*) &client, &clientLength);
         if(bytesReceived == SOCKET_ERROR) {
-            std::cout << "recvfrom failed! Error code: " << WSAGetLastError() << std::endl;
+            std::cout << "recvfrom failed! Error code: " << WSAGetLastError() << "\n";
         }
         else {
             char clientIp[256]; // Create enough space to convert the address byte array
@@ -63,7 +63,7 @@ void Udp_Receiver::Message() const
             inet_ntop(AF_INET, &client.sin_addr, clientIp, 256);
 
             buffer[bytesReceived] = '\0';
-            std::cout << "Received message from " << clientIp << " : " << buffer << std::endl;
+            std::cout << "Received message from " << clientIp << " : " << buffer << "\n";
 
             std::string message(buffer);
             if(message == "exit") {
